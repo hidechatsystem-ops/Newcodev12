@@ -1,0 +1,28 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Netlify Functions for the AI proxy when the site is deployed on Netlify.
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/meta-ai"
+  to = "/.netlify/functions/meta-ai"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+  force = true
+
+# React/Vite SPA fallback.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

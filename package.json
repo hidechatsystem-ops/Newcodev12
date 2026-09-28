@@ -1,0 +1,28 @@
+{
+  "name": "whatsapp-style-react-firebase",
+  "private": true,
+  "version": "12.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "check": "vite build",
+    "predeploy": "npm run build"
+  },
+  "dependencies": {
+    "firebase": "^12.5.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-easy-crop": "^5.5.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.7"
+  },
+  "engines": {
+    "node": "22"
+  }
+}

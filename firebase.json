@@ -1,0 +1,43 @@
+{
+  "firestore": {
+    "rules": "firebase.rules.txt"
+  },
+  "storage": {
+    "rules": "storage.rules.txt"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/meta-ai",
+        "function": {
+          "functionId": "metaAI",
+          "region": "asia-south1"
+        }
+      },
+      {
+        "source": "/api/health",
+        "function": {
+          "functionId": "metaHealth",
+          "region": "asia-south1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs22"
+  }
+}

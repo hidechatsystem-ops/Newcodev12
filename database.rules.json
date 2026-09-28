@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "status": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "typing": {
+      "$chatId": {
+        "$uid": {
+          ".read": "auth != null",
+          ".write": "auth != null && auth.uid == $uid"
+        }
+      }
+    },
+    "incomingCalls": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        "$callId": {
+          ".write": "auth != null && (auth.uid == $uid || auth.uid == newData.child('callerId').val() || auth.uid == data.child('callerId').val())"
+        }
+      }
+    },
+    "calls": {
+      "$callId": {
+        ".read": "auth != null && (data.child('callerId').val() == auth.uid || data.child('calleeId').val() == auth.uid)",
+        ".write": "auth != null && (data.child('callerId').val() == auth.uid || data.child('calleeId').val() == auth.uid || newData.child('callerId').val() == auth.uid || newData.child('calleeId').val() == auth.uid)",
+        "ice": {
+          "$side": {
+            "$candidateId": {
+              ".read": "auth != null && (root.child('calls').child($callId).child('callerId').val() == auth.uid || root.child('calls').child($callId).child('calleeId').val() == auth.uid)",
+              ".write": "auth != null && ((root.child('calls').child($callId).child('callerId').val() == auth.uid && $side == 'caller') || (root.child('calls').child($callId).child('calleeId').val() == auth.uid && $side == 'callee') || newData.val() == null)"
+            }
+          }
+        }
+      }
+    }
+  }
+}

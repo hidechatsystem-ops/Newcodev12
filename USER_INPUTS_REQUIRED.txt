@@ -1,0 +1,11 @@
+Send these to finish production configuration:
+
+1) The exact Firebase deployment/build error text or a screenshot of the failed build log.
+2) Where you deploy: Firebase Hosting, Firebase App Hosting, Vercel, Netlify, or another service.
+3) Whether Firebase Realtime Database is already created/enabled in project meseage-60483.
+4) Whether Firebase Phone Authentication is enabled and which production domain you will use.
+5) A Meta/Llama API key if you want in-app AI enabled. Do NOT send a Firebase service-account private key in chat.
+6) A TURN server URL + username + credential if you want production-grade voice/video calls across restrictive networks. Do NOT paste long-lived secrets if you can configure them directly in the deployment environment.
+7) If you have a custom domain, give only the domain name so the deployment guide can be adjusted.
+
+Do not send passwords, OTP codes, Firebase service-account private-key JSON, or other private credentials in chat.
